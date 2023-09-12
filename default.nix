@@ -31,6 +31,13 @@ in pkgs.mkShell rec {
     zlib
   ];
 
+  NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [
+    stdenv.cc.cc
+    openssl
+    # ...
+  ];
+  NIX_LD = lib.fileContents "${stdenv.cc}/nix-support/dynamic-linker";
+
   # Run this command, only after creating the virtual environment
   postVenvCreation = ''
     unset SOURCE_DATE_EPOCH
