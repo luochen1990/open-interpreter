@@ -3,6 +3,7 @@
 
 # Ignore the .env file if you're using one to store sensitive information
 .env
+.venv/
 
 # Ignore Python virtual environment directories
 venv/
